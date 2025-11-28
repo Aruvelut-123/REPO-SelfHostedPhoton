@@ -13,20 +13,22 @@ namespace Self_Hosted_Photon;
 public class Plugin : BaseUnityPlugin
 {
     internal static Plugin Instance { get; private set; } = null!;
-    internal static new ManualLogSource Logger => Instance._logger;
 
     internal static string PluginFolder => System.IO.Path.GetDirectoryName(Instance.Info.Location)!;
-
-    private ManualLogSource _logger => base.Logger;
 
     private void Awake()
     {
         Instance = this;
 
-        // Prevent the plugin from being deleted
-        this.gameObject.transform.parent = null;
-        this.gameObject.hideFlags = HideFlags.HideAndDontSave;
+        Self_Hosted_Photon.Logger.Initialize(
+            BepInEx.Logging.Logger.CreateLogSource(MyPluginInfo.PLUGIN_GUID)
+        );
 
-        Logger.LogInfo($"{Info.Metadata.GUID} v{Info.Metadata.Version} has loaded!");
+        Self_Hosted_Photon.Logger.LogDebug($"{MyPluginInfo.PLUGIN_NAME} has awoken!");
+
+
+        Self_Hosted_Photon.Logger.LogInfo(
+            $"{Info.Metadata.GUID} v{Info.Metadata.Version} has loaded!"
+        );
     }
 }
