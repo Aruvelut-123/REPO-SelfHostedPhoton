@@ -26,6 +26,8 @@ public class Plugin : BaseUnityPlugin
 
         Self_Hosted_Photon.Logger.LogDebug($"{MyPluginInfo.PLUGIN_NAME} has awoken!");
 
+        ConfigManager.Initialize(Config);
+        Self_Hosted_Photon.Logger.LogDebug("ConfigManager initialized.");
 
         Self_Hosted_Photon.Logger.LogInfo(
             $"{Info.Metadata.GUID} v{Info.Metadata.Version} has loaded!"
