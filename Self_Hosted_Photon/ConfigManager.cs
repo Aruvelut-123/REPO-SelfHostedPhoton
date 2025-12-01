@@ -29,7 +29,7 @@ internal static class ConfigManager
         ServerAddress = ConfigFile.Bind(
             "Server",
             "Address",
-            defaultValue: "localhost",
+            defaultValue: "127.0.0.1",
             "The IP address or hostname of the Photon server."
         );
 
