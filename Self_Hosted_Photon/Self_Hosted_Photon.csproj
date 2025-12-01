@@ -97,7 +97,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="RequiredMemberAttribute" Version="1.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -110,7 +109,6 @@
     />
     <PackageReference Include="R.E.P.O.GameLibs.Steam" Version="0.3.0-ngd.0" PrivateAssets="all" />
     <PackageReference Include="Linkoid.Repo.Plugin.Build" Version="0.2.2" PrivateAssets="all" />
-    <PackageReference Include="Zehs.REPOLib" Version="3.*" />
   </ItemGroup>
 
   <!-- Default values in case the Directory.Repo.props file doesn't exist -->
