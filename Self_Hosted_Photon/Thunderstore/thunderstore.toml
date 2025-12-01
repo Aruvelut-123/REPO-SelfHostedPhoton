@@ -8,7 +8,7 @@ repository = "https://thunderstore.io"
 namespace = "zyxterus"
 name = "Self_Hosted_Photon"
 description = "Allows you to connect to a self-hosted Photon server via an IP address or a hostname."
-websiteUrl = "https://github.com/zyxterus/REPO-Self_Hosted_Photon"
+websiteUrl = "https://github.com/zyxterus/REPO-SelfHostedPhoton"
 containsNsfwContent = false
 [package.dependencies]
 BepInEx-BepInExPack = "5.4.2304"
