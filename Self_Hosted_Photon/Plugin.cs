@@ -7,7 +7,6 @@ namespace Self_Hosted_Photon;
 /// Self_Hosted_Photon's main plugin class.
 /// </summary>
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
-[BepInDependency(REPOLib.MyPluginInfo.PLUGIN_GUID, BepInDependency.DependencyFlags.HardDependency)]
 public class Plugin : BaseUnityPlugin
 {
     internal static Plugin Instance { get; private set; } = null!;
