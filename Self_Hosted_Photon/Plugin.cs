@@ -1,7 +1,5 @@
 ﻿using BepInEx;
-using BepInEx.Logging;
-using REPOLib;
-using UnityEngine;
+using HarmonyLib;
 
 namespace Self_Hosted_Photon;
 
@@ -15,6 +13,7 @@ public class Plugin : BaseUnityPlugin
     internal static Plugin Instance { get; private set; } = null!;
 
     internal static string PluginFolder => System.IO.Path.GetDirectoryName(Instance.Info.Location)!;
+    internal Harmony? Harmony { get; set; }
 
     private void Awake()
     {
@@ -29,8 +28,22 @@ public class Plugin : BaseUnityPlugin
         ConfigManager.Initialize(Config);
         Self_Hosted_Photon.Logger.LogDebug("ConfigManager initialized.");
 
+        HarmonyPatch();
+        Self_Hosted_Photon.Logger.LogDebug("Harmony patches applied.");
+
         Self_Hosted_Photon.Logger.LogInfo(
             $"{Info.Metadata.GUID} v{Info.Metadata.Version} has loaded!"
         );
+    }
+
+    internal void HarmonyPatch()
+    {
+        Harmony ??= new Harmony(Info.Metadata.GUID);
+        Harmony.PatchAll();
+    }
+
+    internal void HarmonyUnpatch()
+    {
+        Harmony?.UnpatchSelf();
     }
 }
